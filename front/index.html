@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Trip Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="back-button">&larr;</button>
+            <h2>Add trip details</h2>
+        </div>
+
+        <div class="section">
+            <h3>1. Enter the trip</h3>
+            <div class="input-group">
+                <input type="text" placeholder="Enter the Start location" class="location-input">
+                <div class="scroll-container">
+                    <div class="suggestions">
+                        <span>Hyderabad</span>
+                        <span>Bengaluru</span>
+                        <span>Delhi</span>
+                        <span>Mumbai</span>
+                        <span>Chennai</span>
+                        <span>Pune</span>
+                        <span>Kolkata</span>
+                        <span>Goa</span>
+                    </div>
+                </div>
+            </div>
+            <div class="swap-icon">&#8645;</div>
+            <div class="input-group">
+                <input type="text" placeholder="Enter the Destination" class="location-input">
+                <div class="scroll-container">
+                    <div class="suggestions">
+                        <span>Hyderabad</span>
+                        <span>Bengaluru</span>
+                        <span>Delhi</span>
+                        <span>Mumbai</span>
+                        <span>Chennai</span>
+                        <span>Pune</span>
+                        <span>Kolkata</span>
+                        <span>Goa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>2. Select a car</h3>
+            <p>We need it for calculating fuel expenses</p>
+            <div class="car-selection">
+                <span class="car-icon">🚗</span>
+                <button class="add-car-button">Add car</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>3. People travelling</h3>
+            <div class="people-selection">
+                <button>1</button>
+                <button class="active">2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+            </div>
+        </div>
+
+        <button class="calculate-button">Calculate My Trip</button>
+    </div>
+</body>
+</html>
