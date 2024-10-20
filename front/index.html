@@ -17,8 +17,10 @@
             <h3>1. Enter the trip</h3>
            
             <div class="input-group">
+                <div class="location-input-container">
                 <input type="text" placeholder="Enter the Start location" class="location-input">
-                <img class="image-114-icon" alt="" src="Image 114.png">
+                <img src="Image 114.png" alt="icon" class="location-icon">
+                </div>
                 <div class="scroll-container">
                     <div class="suggestions">
                         <span>Hyderabad</span>
@@ -36,7 +38,10 @@
                 <path d="M30.0201 7.14502L23.34 13.825L28.35 13.825L28.35 25.515C28.35 27.352 26.847 28.855 25.01 28.855C23.173 28.855 21.67 27.352 21.67 25.515L21.67 13.825C21.67 10.1343 18.6807 7.14502 14.99 7.14502C11.2993 7.14502 8.31005 10.1343 8.31005 13.825L8.31005 25.515H3.30005L9.98005 32.195L16.66 25.515H11.65L11.65 13.825C11.65 11.988 13.153 10.485 14.99 10.485C16.827 10.485 18.33 11.988 18.33 13.825L18.33 25.515C18.33 29.2057 21.3193 32.195 25.01 32.195C28.7008 32.195 31.6901 29.2057 31.6901 25.515L31.6901 13.825H36.7001L30.0201 7.14502Z" fill="#171A1F"/>
               </svg></div>
             <div class="input-group">
+                <div class="location-input-container">
                 <input type="text" placeholder="Enter the Destination" class="location-input">
+                <img src="Image 113.png" alt="icon" class="location-icon">
+            </div>
                 <div class="scroll-container">
                     <div class="suggestions">
                         <span>Hyderabad</span>
@@ -57,11 +62,12 @@
                 Add a car and it's mileage </h3>
             <p>We need it for calculating fuel expenses</p>
             <div class="search-container">
-                <button class="search-button">Search</button>
+                
+                <input type="search" name="query" placeholder="Add your car">
                 <div class="search-box" id="searchBox">
-                    <input type="search" name="query" placeholder="Add your car">
-                    <span class="car-icon">🚗</span> <!-- Optional: car icon -->
+                    
                 </div>
+            </div>
             </div>
         <div class="section">
             <h3>3. People travelling</h3>

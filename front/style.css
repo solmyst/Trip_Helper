@@ -34,11 +34,13 @@ body {
 /* Section Styles */
 .section {
     margin-bottom: 20px;
+    
 }
 
 h2, h3 {
     margin: 0;
     font-weight: bold;
+    padding: 5px;
 }
 
 /* Input Group Styles */
@@ -71,11 +73,13 @@ h2, h3 {
 
 input[type="search"] {
     padding-left: 35px;
-    height: 30px;
+    height: 51px;
     width: 200px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 2px;
     box-sizing: border-box;
+    text-align: left;
+font-size: 16px;
 }
 
 /* Suggestions Styles */
@@ -230,4 +234,34 @@ input[type="search"] {
     transform: translateY(-50%);
     font-size: 1.2em;
     pointer-events: none;
+}
+/* Location Input Container Styles */
+.location-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.location-input {
+    width: calc(100% - 40px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding-right: 40px; /* Add space for the icon */
+}
+
+/* Icon Styles */
+.location-icon {
+    position: absolute;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+}
+.search-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #cf1d1d;
+    border: 1px solid #262424;
+    border-radius: 5px;
+    cursor: pointer;
 }

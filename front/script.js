@@ -16,3 +16,7 @@ document.querySelector('.search-button').addEventListener('click', function() {
     const searchBox = document.getElementById('searchBox');
     searchBox.classList.toggle('open'); // Toggle the 'open' class to show/hide
 });
+document.querySelector('.search-button').addEventListener('click', function() {
+    const searchBox = document.getElementById('searchBox');
+    searchBox.classList.toggle('open');
+});
