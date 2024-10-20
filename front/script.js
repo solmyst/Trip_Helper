@@ -12,3 +12,7 @@ document.querySelectorAll('.scroll-container').forEach(container => {
         suggestions.scrollBy({ left: 100, behavior: 'smooth' });
     });
 });
+document.querySelector('.search-button').addEventListener('click', function() {
+    const searchBox = document.getElementById('searchBox');
+    searchBox.classList.toggle('open'); // Toggle the 'open' class to show/hide
+});
