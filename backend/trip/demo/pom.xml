@@ -11,7 +11,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
+	<name>trip</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -48,6 +48,10 @@
 			<groupId>com.google.cloud</groupId>
 			<artifactId>spring-cloud-gcp-starter-pubsub</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.google.cloud</groupId>
+			<artifactId>spring-cloud-gcp-starter-storage</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -76,11 +80,6 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			<dependency>
-        <groupId>com.google.maps</groupId>
-        <artifactId>google-maps-services</artifactId>
-        <version>0.18.0</version>
-    </dependency>
 		</dependencies>
 	</dependencyManagement>
 
