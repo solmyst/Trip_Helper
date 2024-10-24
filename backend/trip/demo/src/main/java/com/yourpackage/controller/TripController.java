@@ -1,6 +1,8 @@
 // src/main/java/com/yourpackage/controller/TripController.java
 package com.yourpackage.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,5 +24,12 @@ public class TripController {
             @RequestParam int numberOfPeople) {
         return tripService.calculateTripCost(startingPoint, destination, numberOfPeople);
     }
+    @GetMapping("/route")
+    public List<String> getRouteDetails(
+            @RequestParam String startingPoint, 
+            @RequestParam String destination) {
+        return tripService.getRouteDetails(startingPoint, destination);
+    }
 }
+
 

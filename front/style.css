@@ -34,7 +34,6 @@ body {
 /* Section Styles */
 .section {
     margin-bottom: 20px;
-    
 }
 
 h2, h3 {
@@ -79,7 +78,7 @@ input[type="search"] {
     border-radius: 2px;
     box-sizing: border-box;
     text-align: left;
-font-size: 16px;
+    font-size: 16px;
 }
 
 /* Suggestions Styles */
@@ -165,14 +164,6 @@ font-size: 16px;
     margin-top: 5px;
 }
 
-.scroll-left, .scroll-right {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    padding: 0 5px;
-    user-select: none;
-}
 .image-114-icon {
     position: absolute;
     top: 15px;
@@ -182,6 +173,7 @@ font-size: 16px;
     height: 22px;
     object-fit: cover;
 }
+
 .search-container {
     position: relative;
 }
@@ -196,72 +188,4 @@ font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* Ensure it appears above other elements */
-}
-
-.search-box.open {
-    display: flex; /* Show the search box */
-}
-
-input[type="search"] {
-    padding-left: 35px;
-    height: 30px;
-    width: 200px;
-    border: none; /* Remove default border */
-    outline: none; /* Remove focus outline */
-}
-
-/* Optional: Add some transitions for better UX */
-.search-box {
-    transition: opacity 0.3s ease, visibility 0.3s ease; /* For smooth transition */
-}
-
-.search-box.open {
-    opacity: 1; /* Fade in */
-    visibility: visible; /* Make it visible */
-}
-
-.search-box:not(.open) {
-    opacity: 0; /* Fade out */
-    visibility: hidden; /* Make it hidden */
-}
-
-.car-icon {
-    position: absolute;
-    top: 50%;
-    left: 8px;
-    transform: translateY(-50%);
-    font-size: 1.2em;
-    pointer-events: none;
-}
-/* Location Input Container Styles */
-.location-input-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.location-input {
-    width: calc(100% - 40px);
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding-right: 40px; /* Add space for the icon */
-}
-
-/* Icon Styles */
-.location-icon {
-    position: absolute;
-    right: 10px;
-    width: 20px;
-    height: 20px;
-}
-.search-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #cf1d1d;
-    border: 1px solid #262424;
-    border-radius: 5px;
-    cursor: pointer;
-}
+    box-shadow: 0 2
