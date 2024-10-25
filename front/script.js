@@ -3,43 +3,43 @@ function calculateTrip() {
     const destination = document.getElementById('destination').value;
     const numberOfPeople = document.getElementById('numberOfPeople').value;
 
-    // Use POST for the trip calculation
-    fetch('http://localhost:8081/calculateTrip', {
-        method: 'POST', // Change to POST
+    // Create a JavaScript object to hold the trip details
+    const tripRequest = {
+        startingPoint: startingPoint,
+        destination: destination,
+        numberOfPeople: parseInt(numberOfPeople) // Ensure number is an integer
+    };
+
+    // Send the trip details as a JSON object in the request body
+    fetch(`http://localhost:8081/api/trip/calculateTrip`, { // Ensure the correct URL
+        method: 'POST',
         headers: {
-            'Content-Type': 'application/json' // Set content type to JSON
+            'Content-Type': 'application/json' // Specify content type
         },
-        body: JSON.stringify({
-            startingPoint: startingPoint,
-            destination: destination,
-            numberOfPeople: numberOfPeople
-        })
+        body: JSON.stringify(tripRequest) // Convert the object to a JSON string
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error('Network response was not ok: ' + response.statusText);
         }
-        return response.json(); // Assume the response is JSON
+        return response.json();
     })
     .then(data => {
         console.log('Trip Data:', data);
         document.getElementById('tripCost').innerText = `Total Cost: ${data.cost}`;
         
-        // Now fetch route details
-        return fetch(`http://localhost:8081/route`, {
+        // Fetch route details
+        return fetch(`http://localhost:8081/api/trip/route`, { // Ensure the correct URL for route
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                startingPoint: startingPoint,
-                destination: destination
-            })
+            body: JSON.stringify({ startingPoint, destination }) // Send starting and destination points
         });
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error('Network response was not ok: ' + response.statusText);
         }
         return response.json();
     })
@@ -52,19 +52,48 @@ function calculateTrip() {
             li.innerText = route;
             routeDetailsElement.appendChild(li);
         });
-
-        // Save trip details to localStorage
-        localStorage.setItem("tripCost", data.cost);
-        localStorage.setItem("tripDistance", data.distance);
-        localStorage.setItem("tripDuration", data.duration);
-        localStorage.setItem("startingPoint", startingPoint);
-        localStorage.setItem("destination", destination);
-        
-        // Redirect to the trip cost page
-        window.location.href = "index2.html"; // Change this to the actual URL of your second page
     })
     .catch(error => {
         console.error("Error:", error);
         document.getElementById('tripCost').innerText = 'Error calculating trip';
     });
+    document.getElementById("tripForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+    
+        const startingPoint = document.getElementById("startingPoint").value;
+        const destination = document.getElementById("destination").value;
+        const numberOfPeople = document.querySelector('.people-selection .active').textContent;
+    
+        // Create a data object to send
+        const tripData = {
+            startingPoint: startingPoint,
+            destination: destination,
+            numberOfPeople: numberOfPeople
+        };
+    
+        // Send data to the backend
+        fetch("http://localhost:8080/calculateTrip", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(tripData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Assuming data contains tripCost, tripDistance, and tripDuration
+            localStorage.setItem("startingPoint", startingPoint);
+            localStorage.setItem("destination", destination);
+            localStorage.setItem("tripCost", data.tripCost);
+            localStorage.setItem("tripDistance", data.tripDistance);
+            localStorage.setItem("tripDuration", data.tripDuration);
+    
+            // Redirect to the second page
+            window.location.href = "index2.html";
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+    });
+    
 }

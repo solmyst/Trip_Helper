@@ -104,19 +104,8 @@
             const destination = document.getElementById("destination").value;
             const numberOfPeople = document.querySelector('.people-selection .active').textContent;
 
-            // Fetch trip cost
-            fetch(`http://localhost:8081/calculateTrip?startingPoint=${startingPoint}&destination=${destination}&numberOfPeople=${numberOfPeople}`)
-                .then(response => {
-                    if (!response.ok) throw new Error('Network response was not ok');
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Trip Data:', data); // Handle the response data
-                    // You can update the UI here with trip data
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+            // Redirect to the next page with query parameters
+            window.location.href = `index2.html?startingPoint=${encodeURIComponent(startingPoint)}&destination=${encodeURIComponent(destination)}&numberOfPeople=${encodeURIComponent(numberOfPeople)}`;
         });
     </script>
 </body>

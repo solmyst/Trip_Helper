@@ -3,7 +3,7 @@ package com.yourpackage.model;
 public class TripRequest {
     private String startingPoint;
     private String destination;
-    private int numberOfPeople;
+    private int numberOfPeople; // If needed for calculating cost
 
     // Getters and Setters
     public String getStartingPoint() {
@@ -30,4 +30,3 @@ public class TripRequest {
         this.numberOfPeople = numberOfPeople;
     }
 }
-
