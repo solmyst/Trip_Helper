@@ -1,74 +1,70 @@
-// script.js
-document.querySelectorAll('.scroll-container').forEach(container => {
-    const scrollLeftButton = container.querySelector('.scroll-left');
-    const scrollRightButton = container.querySelector('.scroll-right');
-    const suggestions = container.querySelector('.suggestions');
+function calculateTrip() {
+    const startingPoint = document.getElementById('startingPoint').value;
+    const destination = document.getElementById('destination').value;
+    const numberOfPeople = document.getElementById('numberOfPeople').value;
 
-    scrollLeftButton.addEventListener('click', () => {
-        suggestions.scrollBy({ left: -100, behavior: 'smooth' });
-    });
-
-    scrollRightButton.addEventListener('click', () => {
-        suggestions.scrollBy({ left: 100, behavior: 'smooth' });
-    });
-});
-document.querySelector('.search-button').addEventListener('click', function() {
-    const searchBox = document.getElementById('searchBox');
-    searchBox.classList.toggle('open'); // Toggle the 'open' class to show/hide
-});
-document.querySelector('.search-button').addEventListener('click', function() {
-    const searchBox = document.getElementById('searchBox');
-    searchBox.classList.toggle('open');
-});
-document.querySelector('.calculate-button').addEventListener('click', () => {
-    const startLocation = document.querySelector('.location-input:nth-of-type(1)').value;
-    const destination = document.querySelector('.location-input:nth-of-type(2)').value;
-    const car = document.querySelector('.search-container input[type="search"]').value;
-    const mileage = 15; // Replace with actual mileage
-    const people = document.querySelector('.people-selection .active').textContent;
-
-    // Calculate total cost logic here (replace with your calculation)
-    const totalCost = 100; // Dummy cost value, replace with actual calculation
-
-    // Store data in local storage
-    localStorage.setItem('startLocation', startLocation);
-    localStorage.setItem('destination', destination);
-    localStorage.setItem('car', car);
-    localStorage.setItem('mileage', mileage);
-    localStorage.setItem('people', people);
-    localStorage.setItem('totalCost', totalCost);
-
-    // Redirect to trip details page
-    window.location.href = 'trip-details.html'; // Replace with the correct path to the second page
-});
-document.getElementById("tripForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the form from submitting the default way
-
-    const startingPoint = document.getElementById("startingPoint").value;
-    const destination = document.getElementById("destination").value;
-    const numberOfPeople = document.getElementById("numberOfPeople").value;
-
-    // Fetch trip cost
-    fetch(`/calculateTrip?startingPoint=${startingPoint}&destination=${destination}&numberOfPeople=${numberOfPeople}`)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("tripCost").innerText = data.cost; // Assuming your Trip model has a 'cost' field
-
-            // Fetch route details
-            return fetch(`/route?startingPoint=${startingPoint}&destination=${destination}`);
+    // Use POST for the trip calculation
+    fetch('http://localhost:8081/calculateTrip', {
+        method: 'POST', // Change to POST
+        headers: {
+            'Content-Type': 'application/json' // Set content type to JSON
+        },
+        body: JSON.stringify({
+            startingPoint: startingPoint,
+            destination: destination,
+            numberOfPeople: numberOfPeople
         })
-        .then(response => response.json())
-        .then(routeData => {
-            const routeDetailsElement = document.getElementById("routeDetails");
-            routeDetailsElement.innerHTML = ""; // Clear previous route details
-
-            routeData.forEach(route => {
-                const li = document.createElement("li");
-                li.innerText = route; // Adjust based on your response format
-                routeDetailsElement.appendChild(li);
-            });
-        })
-        .catch(error => {
-            console.error("Error:", error);
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json(); // Assume the response is JSON
+    })
+    .then(data => {
+        console.log('Trip Data:', data);
+        document.getElementById('tripCost').innerText = `Total Cost: ${data.cost}`;
+        
+        // Now fetch route details
+        return fetch(`http://localhost:8081/route`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                startingPoint: startingPoint,
+                destination: destination
+            })
         });
-});
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(routeData => {
+        const routeDetailsElement = document.getElementById('routeDetails');
+        routeDetailsElement.innerHTML = ""; // Clear previous route details
+
+        routeData.forEach(route => {
+            const li = document.createElement("li");
+            li.innerText = route;
+            routeDetailsElement.appendChild(li);
+        });
+
+        // Save trip details to localStorage
+        localStorage.setItem("tripCost", data.cost);
+        localStorage.setItem("tripDistance", data.distance);
+        localStorage.setItem("tripDuration", data.duration);
+        localStorage.setItem("startingPoint", startingPoint);
+        localStorage.setItem("destination", destination);
+        
+        // Redirect to the trip cost page
+        window.location.href = "index2.html"; // Change this to the actual URL of your second page
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        document.getElementById('tripCost').innerText = 'Error calculating trip';
+    });
+}

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Trip Details</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script> <!-- Make sure to include your JS file -->
 </head>
 <body>
     <div class="container">
@@ -13,75 +14,110 @@
             <h2>Add Trip Details</h2>
         </div>
 
-        <div class="section">
-            <h3>1. Enter the Trip</h3>
-            <div class="input-group">
-                <div class="location-input-container">
-                    <input type="text" placeholder="Enter the Start Location" class="location-input">
-                    <img src="Image 114.png" alt="icon" class="location-icon">
+        <form id="tripForm"> <!-- Wrap inputs in a form -->
+            <div class="section">
+                <h3>1. Enter the Trip</h3>
+                <div class="input-group">
+                    <div class="location-input-container">
+                        <input type="text" id="startingPoint" placeholder="Enter the Start Location" class="location-input" required>
+                        <img src="Image 114.png" alt="icon" class="location-icon">
+                    </div>
+                    <div class="scroll-container">
+                        <div class="suggestions">
+                            <span>Hyderabad</span>
+                            <span>Bengaluru</span>
+                            <span>Delhi</span>
+                            <span>Mumbai</span>
+                            <span>Chennai</span>
+                            <span>Pune</span>
+                            <span>Kolkata</span>
+                            <span>Goa</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="scroll-container">
-                    <div class="suggestions">
-                        <span>Hyderabad</span>
-                        <span>Bengaluru</span>
-                        <span>Delhi</span>
-                        <span>Mumbai</span>
-                        <span>Chennai</span>
-                        <span>Pune</span>
-                        <span>Kolkata</span>
-                        <span>Goa</span>
+                <div class="swap-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none">
+                        <path d="M30.0201 7.14502L23.34 13.825L28.35 13.825L28.35 25.515C28.35 27.352 26.847 28.855 25.01 28.855C23.173 28.855 21.67 27.352 21.67 25.515L21.67 13.825C21.67 10.1343 18.6807 7.14502 14.99 7.14502C11.2993 7.14502 8.31005 10.1343 8.31005 13.825L8.31005 25.515H3.30005L9.98005 32.195L16.66 25.515H11.65L11.65 13.825C11.65 11.988 13.153 10.485 14.99 10.485C16.827 10.485 18.33 11.988 18.33 13.825L18.33 25.515C18.33 29.2057 21.3193 32.195 25.01 32.195C28.7008 32.195 31.6901 29.2057 31.6901 25.515L31.6901 13.825H36.7001L30.0201 7.14502Z" fill="#171A1F"/>
+                    </svg>
+                </div>
+                <div class="input-group">
+                    <div class="location-input-container">
+                        <input type="text" id="destination" placeholder="Enter the Destination" class="location-input" required>
+                        <img src="Image 113.png" alt="icon" class="location-icon">
+                    </div>
+                    <div class="scroll-container">
+                        <div class="suggestions">
+                            <span>Hyderabad</span>
+                            <span>Bengaluru</span>
+                            <span>Delhi</span>
+                            <span>Mumbai</span>
+                            <span>Chennai</span>
+                            <span>Pune</span>
+                            <span>Kolkata</span>
+                            <span>Goa</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="swap-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none">
-                    <path d="M30.0201 7.14502L23.34 13.825L28.35 13.825L28.35 25.515C28.35 27.352 26.847 28.855 25.01 28.855C23.173 28.855 21.67 27.352 21.67 25.515L21.67 13.825C21.67 10.1343 18.6807 7.14502 14.99 7.14502C11.2993 7.14502 8.31005 10.1343 8.31005 13.825L8.31005 25.515H3.30005L9.98005 32.195L16.66 25.515H11.65L11.65 13.825C11.65 11.988 13.153 10.485 14.99 10.485C16.827 10.485 18.33 11.988 18.33 13.825L18.33 25.515C18.33 29.2057 21.3193 32.195 25.01 32.195C28.7008 32.195 31.6901 29.2057 31.6901 25.515L31.6901 13.825H36.7001L30.0201 7.14502Z" fill="#171A1F"/>
-                </svg>
-            </div>
-            <div class="input-group">
-                <div class="location-input-container">
-                    <input type="text" placeholder="Enter the Destination" class="location-input">
-                    <img src="Image 113.png" alt="icon" class="location-icon">
-                </div>
-                <div class="scroll-container">
-                    <div class="suggestions">
-                        <span>Hyderabad</span>
-                        <span>Bengaluru</span>
-                        <span>Delhi</span>
-                        <span>Mumbai</span>
-                        <span>Chennai</span>
-                        <span>Pune</span>
-                        <span>Kolkata</span>
-                        <span>Goa</span>
-                    </div>
+
+            <div class="section">
+                <h3>2. Add a Car and Its Mileage</h3>
+                <p>We need it for calculating fuel expenses</p>
+                <div class="search-container">
+                    <input type="search" name="query" placeholder="Add Your Car">
+                    <div class="search-box" id="searchBox"></div>
                 </div>
             </div>
-        </div>
 
-        <div class="section">
-            <h3>2. Add a Car and Its Mileage</h3>
-            <p>We need it for calculating fuel expenses</p>
-            <div class="search-container">
-                <input type="search" name="query" placeholder="Add Your Car">
-                <div class="search-box" id="searchBox"></div>
+            <div class="section">
+                <h3>3. People Traveling</h3>
+                <div class="people-selection" id="numberOfPeople">
+                    <button type="button" onclick="selectPeople(1)">1</button>
+                    <button type="button" onclick="selectPeople(2)" class="active">2</button>
+                    <button type="button" onclick="selectPeople(3)">3</button>
+                    <button type="button" onclick="selectPeople(4)">4</button>
+                    <button type="button" onclick="selectPeople(5)">5</button>
+                    <button type="button" onclick="selectPeople(6)">6</button>
+                    <button type="button" onclick="selectPeople(7)">7</button>
+                    <button type="button" onclick="selectPeople(8)">8</button>
+                    <button type="button" onclick="selectPeople(9)">9</button>
+                </div>
             </div>
-        </div>
-        <div class="section">
-            <h3>3. People Traveling</h3>
-            <div class="people-selection">
-                <button>1</button>
-                <button class="active">2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-            </div>
-        </div>
 
-        <button class="calculate-button">Calculate My Trip</button>
+            <button type="submit" class="calculate-button">Calculate My Trip</button> <!-- Change type to submit -->
+        </form>
     </div>
+
+    <script>
+        function selectPeople(number) {
+            document.querySelectorAll('#numberOfPeople button').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.querySelector(`#numberOfPeople button:nth-of-type(${number})`).classList.add('active');
+        }
+
+        // Add event listener for form submission
+        document.getElementById("tripForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const startingPoint = document.getElementById("startingPoint").value;
+            const destination = document.getElementById("destination").value;
+            const numberOfPeople = document.querySelector('.people-selection .active').textContent;
+
+            // Fetch trip cost
+            fetch(`http://localhost:8081/calculateTrip?startingPoint=${startingPoint}&destination=${destination}&numberOfPeople=${numberOfPeople}`)
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Trip Data:', data); // Handle the response data
+                    // You can update the UI here with trip data
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
 </body>
 </html>
