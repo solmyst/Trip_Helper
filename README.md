@@ -42,8 +42,8 @@ A Flutter app that helps travelers plan road trips with accurate expense estimat
 ### Prerequisites
 1. Flutter SDK (3.0+)
 2. Android Studio / VS Code
-3. Google Maps API Key
-4. AdMob Account
+3. Google Maps API Key (optional for basic functionality)
+4. AdMob Account (optional for monetization)
 
 ### Installation
 
@@ -58,12 +58,13 @@ A Flutter app that helps travelers plan road trips with accurate expense estimat
    flutter pub get
    ```
 
-3. **Configure Google Maps API**
+3. **Configure Google Maps API (Optional)**
    - Get API key from Google Cloud Console
    - Enable Maps SDK for Android
    - Replace `YOUR_GOOGLE_MAPS_API_KEY` in `android/app/src/main/AndroidManifest.xml`
+   - App works without Maps API for basic trip calculations
 
-4. **Configure AdMob**
+4. **Configure AdMob (Optional)**
    - Create AdMob account and app
    - Replace the AdMob App ID in `AndroidManifest.xml`
    - Update ad unit IDs in the code

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   // Colors based on your design
@@ -17,13 +16,13 @@ class AppTheme {
       primarySwatch: Colors.deepPurple,
       primaryColor: primaryColor,
       scaffoldBackgroundColor: backgroundColor,
-      fontFamily: GoogleFonts.poppins().fontFamily,
+      fontFamily: 'Roboto',
       
       appBarTheme: AppBarTheme(
         backgroundColor: surfaceColor,
         elevation: 0,
         iconTheme: const IconThemeData(color: textPrimary),
-        titleTextStyle: GoogleFonts.poppins(
+        titleTextStyle: const TextStyle(
           color: textPrimary,
           fontSize: 18,
           fontWeight: FontWeight.w600,
@@ -39,7 +38,7 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
-          textStyle: GoogleFonts.poppins(
+          textStyle: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w500,
           ),
