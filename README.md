@@ -1,9 +1,5 @@
 # Trip Helper
 
-A comprehensive travel planning application with Flutter mobile app, Java Spring Boot backend, and web frontend for accurate road trip expense estimation and real-time information for Indian highways.
-
-## 📱 Mobile App (Flutter)
-
 A Flutter app that helps travelers plan road trips with accurate expense estimation and real-time information for Indian highways.
 
 ### Core Features
