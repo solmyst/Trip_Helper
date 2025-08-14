@@ -1,0 +1,191 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Styles */
+.container {
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.back-button {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+/* Section Styles */
+.section {
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    margin: 0;
+    font-weight: bold;
+    padding: 5px;
+}
+
+/* Input Group Styles */
+.input-group {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.location-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Search Box with Icon */
+.search-box {
+    position: relative;
+    display: inline-block;
+}
+
+.car-icon {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    pointer-events: none;
+}
+
+input[type="search"] {
+    padding-left: 35px;
+    height: 51px;
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 16px;
+}
+
+/* Suggestions Styles */
+.suggestions {
+    display: flex;
+    gap: 5px;
+    padding: 5px 0;
+    margin-top: 5px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.suggestions span {
+    background-color: #eee;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+/* Swap Icon Styles */
+.swap-icon {
+    text-align: center;
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+/* Car Selection Styles */
+.car-selection {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.add-car-button {
+    background-color: transparent;
+    border: none;
+    color: #007BFF;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+/* People Selection Styles */
+.people-selection {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.people-selection button {
+    border: 1px solid #ddd;
+    background-color: transparent;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.people-selection .active {
+    border-color: red;
+    color: red;
+}
+
+/* Button Styles */
+.calculate-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Scroll Container Styles */
+.scroll-container {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    margin-top: 5px;
+}
+
+.image-114-icon {
+    position: absolute;
+    top: 15px;
+    left: 0px;
+    border-radius: 4px;
+    width: 22px;
+    height: 22px;
+    object-fit: cover;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-box {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 50%; /* Adjust as needed */
+    left: 0;
+    transform: translateY(-50%);
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2

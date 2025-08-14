@@ -43,44 +43,18 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# iOS related
-**/ios/**/*.mode1v3
-**/ios/**/*.mode2v3
-**/ios/**/*.moved-aside
-**/ios/**/*.pbxuser
-**/ios/**/*.perspectivev3
-**/ios/**/*sync/
-**/ios/**/.sconsign.dblite
-**/ios/**/.tags*
-**/ios/**/.vagrant/
-**/ios/**/DerivedData/
-**/ios/**/Icon?
-**/ios/**/Pods/
-**/ios/**/.symlinks/
-**/ios/**/profile
-**/ios/**/xcuserdata
-**/ios/.generated/
-**/ios/Flutter/.last_build_id
-**/ios/Flutter/App.framework
-**/ios/Flutter/Flutter.framework
-**/ios/Flutter/Flutter.podspec
-**/ios/Flutter/Generated.xcconfig
-**/ios/Flutter/ephemeral/
-**/ios/Flutter/app.flx
-**/ios/Flutter/app.zip
-**/ios/Flutter/flutter_assets/
-**/ios/Flutter/flutter_export_environment.sh
-**/ios/ServiceDefinitions.json
-**/ios/Runner/GeneratedPluginRegistrant.*
+# API Keys (Security)
+lib/config/api_keys.dart
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
 
-# Web related
-lib/generated_plugin_registrant.dart
+# Generated files
+*.g.dart
+*.freezed.dart
+*.gr.dart
 
-# Exceptions to above rules.
+# Coverage
+coverage/
+
+# Exceptions to above rules
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
-
-# API Keys (keep these secret)
-**/android/**/google-services.json
-**/ios/**/GoogleService-Info.plist
-**/.env
-**/api_keys.dart

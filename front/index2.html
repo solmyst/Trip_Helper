@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Cost Page</title>
+    <link rel="stylesheet" href="style2.css">
+    <script src="script.js" defer></script> <!-- Ensure you link your JavaScript file -->
+</head>
+<body>
+    <div class="trip-page">
+        
+        <!-- Trip Header with Map -->
+        <div class="trip-container">
+            <div class="trip-header" id="tripHeader">
+              <p id="routeDetails"></p>
+              <p id="tripTime"></p>
+            </div>
+
+        <!-- Trip Cost Section -->
+        <div class="trip-cost-section">
+            <img src="image.png" alt="Map of trip" class="trip-map">
+            <h2>Your Trip Cost</h2>
+            <div class="cost-card">
+                <h3>TOTAL COST OF THE TRIP</h3>
+                <h1 id="totalCost"></h1>
+            </div>
+
+            <!-- Breakdown of Costs -->
+            <div class="cost-details">
+                <!-- Toll Section -->
+                <div class="cost-item toll" id="tollDetails">
+                    <div class="icon">🚧</div>
+                    <div class="text">
+                        <p>Total cost-: <span id="tollCost">₹320</span></p>
+                        <p>NO. of toll-: <span id="numberOfTolls">4</span></p>
+                    </div>
+                    <div class="arrow">➔</div>
+                </div>
+
+                <!-- Petrol Section -->
+                <div class="cost-item petrol" id="petrolDetails">
+                    <div class="icon">⛽</div>
+                    <div class="text">
+                        <p>Petrol charges</p>
+                        <p id="petrolCost">₹3772</p>
+                    </div>
+                    <div class="arrow">➔</div>
+                </div>
+
+                <!-- Food Section -->
+                <div class="cost-item food">
+                    <div class="icon">🍽️</div>
+                    <div class="text">
+                        <p>Food </p>
+                        <p id="foodCost">₹500 for 2 people</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feedback Section -->
+            <div class="feedback">
+                <p>Did you find this information useful?</p>
+                <div class="feedback-options">
+                    <button class="feedback-btn">yes</button>
+                    <button class="feedback-btn">no</button>
+                </div>
+            </div>
+            <div class="emergency-container">
+                <h3>Emergency</h3>
+                <div class="emergency-options">
+                    <div class="emergency-item">
+                        <p>Call - 102 (Ambulance)</p>
+                    </div>
+                    <div class="emergency-item">
+                        <p>Call - 100/112 (Police)</p>
+                    </div>
+                </div>
+            
+                <div class="roadside-options">
+                    <div class="roadside-item">
+                        <p><strong>Mechanic</strong> <br/> Your car has stopped working. Do you need help finding a mechanic?</p>
+                    </div>
+                    <div class="roadside-item">
+                        <p><strong>Call the company Service</strong> <br/> Need help with car service?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Read trip data from localStorage
+        document.addEventListener("DOMContentLoaded", function() {
+            const startingPoint = localStorage.getItem("startingPoint");
+            const destination = localStorage.getItem("destination");
+            const tripCost = localStorage.getItem("tripCost");
+            const tripDistance = localStorage.getItem("tripDistance");
+            const tripDuration = localStorage.getItem("tripDuration");
+
+            // Update the trip details in the header
+            document.getElementById("routeDetails").textContent = `${startingPoint} → ${destination} | ${tripDistance} kms`;
+            document.getElementById("tripTime").textContent = `Trip Time | ${tripDuration}`;
+            document.getElementById("totalCost").textContent = `₹${tripCost}`;
+
+            // You can update the toll, petrol, and food costs similarly if you have those data points
+            // Example:
+            // document.getElementById("tollCost").textContent = 'your toll cost here';
+            // document.getElementById("petrolCost").textContent = 'your petrol cost here';
+        });
+    </script>
+</body>
+</html>

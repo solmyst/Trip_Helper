@@ -1,8 +1,10 @@
 # Trip Helper
 
-A Flutter app that helps travelers plan road trips with accurate expense estimation and real-time information for Indian highways.
+A comprehensive travel planning application with Flutter mobile app, Java Spring Boot backend, and web frontend for accurate road trip expense estimation and real-time information for Indian highways.
 
-## Features
+## 📱 Mobile App (Flutter)
+
+A Flutter app that helps travelers plan road trips with accurate expense estimation and real-time information for Indian highways.
 
 ### Core Features
 - **Route Planning**: Enter source and destination to get detailed trip information
@@ -157,6 +159,49 @@ This is a solo project, but suggestions and feedback are welcome!
 
 This project is proprietary. All rights reserved.
 
+## 🖥️ Backend (Java Spring Boot)
+
+The backend provides REST APIs for trip calculation and data management.
+
+### Database Schema
+```sql
+CREATE TABLE Trip (
+    user_id INT PRIMARY KEY NOT NULL,
+    starting_position VARCHAR(255) NOT NULL,
+    destination VARCHAR(255) NOT NULL,
+    car_mileage FLOAT NOT NULL,
+    number_of_passengers INT NOT NULL
+);
+```
+
+### Backend Features
+- RESTful API endpoints for trip calculation
+- Database integration for user data
+- Cross-origin resource sharing (CORS) support
+- Trip history management
+
+## 🌐 Frontend (Web)
+
+Web interface for trip planning with responsive design.
+
+### Features
+- Interactive web interface
+- Trip calculation form
+- Results display
+- Responsive design for mobile and desktop
+
+## 📁 Project Structure
+
+```
+Trip_Helper/
+├── lib/                      # Flutter mobile app
+├── backend/trip/demo/        # Java Spring Boot backend
+├── front/                    # Web frontend
+├── demo_test.dart           # Demo simulation
+├── demo_walkthrough.md      # Demo documentation
+└── README.md               # This file
+```
+
 ## Contact
 
-For questions or support, please contact [Your Contact Information]
+For questions or support, please contact the development team.
